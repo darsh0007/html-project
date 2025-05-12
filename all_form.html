@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employment form</title>
+
+    <script defer src="all_forms.js"></script>
+</head>
+
+<body>
+
+    <form class="form" action="/" method="GET" id="myForm">
+        <div>
+            <div id="usernameDisplay"></div>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required>
+        </div>
+        <br>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        <br>
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email">
+        </div>
+        <br>
+        <div>
+            <label for="language">First language:</label>
+            <select name="language" id="language">
+                <option value="">--Please choose an option--</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Tamil">Tamil</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <p>Interests(Select all that apply):</p>
+            <label for="interest1">
+                <input type="checkbox" value="coding" name="interests" id="interest1">Coding
+            </label>
+            <label for="interest2">
+                <input type="checkbox" value="swimming" name="interests" id="interest2">Swimming
+            </label>
+            <label for="interest3">
+                <input type="checkbox" value="music" name="interests" id="interest3">Music
+            </label>
+        </div>
+        <br>
+        <div>
+            <p>Employment choice:</p>
+            <label for="fulltime">
+                <input type="radio" value="fulltime" name="employment" id="fulltime">Full-time
+            </label>
+            <label for="part-time">
+                <input type="radio" value="part-time" name="employment" id="parttime">Part-time
+            </label>
+            <label for="contract">
+                <input type="radio" value="contract" name="employment" id="contract">Contract
+            </label>
+        </div>
+        <br>
+        <div>
+            <textarea name="explain" id="explain" placeholder="Additional comments(optional)"></textarea>
+            <br>
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+</body>
+
+</html>
