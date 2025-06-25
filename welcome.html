@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <script defer src="welcome.js"></script>
+    <link rel="stylesheet" href="welcome.css">
+</head>
+
+<body>
+    <!-- Welcome message on top of the screen -->
+    <h1 id="welcome">Welcome To This Page</h1>
+
+    <!-- Table headers -->
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <!-- <th>Password</th> -->
+                <th>Email</th>
+                <th>Language</th>
+                <th>Employment choice</th>
+                <th>Interests</th>
+                <th colspan="2">Action</th> <!--Used colspan so that action can have 2 columns, DELETE & EDIT-->
+            </tr>
+        </thead>
+
+
+        <!-- Adding empty tbody to be able to target it with js-->
+        <tbody>
+        </tbody>
+
+    </table>
+
+    <!-- Pop up when you click delete for a row -->
+    <div id="customConfirmModal" class="modal hidden">
+        <div class="modal-content">
+            <p>Are you sure you want to delete this row?</p>
+            <button id="confirmYes">Yes</button>
+            <button id="confirmNo">No</button>
+        </div>
+    </div>
+
+    <!-- Pop up when you click edit for a row -->
+    <div id="EditRow" class="modal hidden">
+        <div class="modal-content">
+            <p>By clicking 'Yes', you will be redirected to forms.</p>
+            <button id="EditYes">Yes</button>
+            <button id="EditNo">No</button>
+        </div>
+    </div>
+
+    <!-- Add more rows button -->
+    <div id="addRows">
+        <button type="button">Add Rows</button>
+    </div>
+
+    <!-- Pop up to ask confirmation for adding more rows -->
+    <div id="ConfirmAddRows" class="modal hidden">
+        <div class="modal-content">
+            <p>Go back to forms?</p>
+            <button id="AddYes">Yes</button>
+            <button id="AddNo">No</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employment form</title>
+
+    <script defer src="all_forms.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <form class="form" action="/" method="GET" id="myForm">
+        <div>
+            <div id="usernameDisplay"></div>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required>
+        </div>
+
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email">
+        </div>
+
+        <div>
+            <label for="language">First language:</label>
+            <select name="language" id="language">
+                <option value="">--Please choose an option--</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Tamil">Tamil</option>
+            </select>
+        </div>
+
+        <div>
+            <p>Interests(Select all that apply):</p>
+            <label for="interest1">
+                <input type="checkbox" value="coding" name="interests" id="interest1">Coding
+            </label>
+            <label for="interest2">
+                <input type="checkbox" value="swimming" name="interests" id="interest2">Swimming
+            </label>
+            <label for="interest3">
+                <input type="checkbox" value="music" name="interests" id="interest3">Music
+            </label>
+        </div>
+
+        <div>
+            <p>Employment choice:</p>
+            <label for="fullTime">
+                <input type="radio" value="fulltime" name="employment" id="fullTime">Full-time
+            </label>
+            <label for="partTime">
+                <input type="radio" value="part-time" name="employment" id="partTime">Part-time
+            </label>
+            <label for="contract">
+                <input type="radio" value="contract" name="employment" id="contract">Contract
+            </label>
+        </div>
+
+        <div>
+            <textarea name="explain" id="explain" placeholder="Additional comments(optional)"></textarea>
+            <button id="ResetBtn" type="reset">Reset</button>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+</body>
+
+</html>
