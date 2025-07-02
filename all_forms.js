@@ -18,7 +18,6 @@ function handleFormSubmit(e) {
     // Get all selected checkboxes with the same name, if not, only the last selected checkbox would be conisdered.
     data.interests = formdata.getAll("interests");
 
-
     //New code for editRow
     const editIndex = localStorage.getItem("editIndex");
     const formDataList = JSON.parse(localStorage.getItem("formDataList")) || [];
@@ -45,18 +44,17 @@ function handleFormSubmit(e) {
 
     localStorage.setItem("formDataList", JSON.stringify(formDataList)); ////Storing formdata in localstorage to be able to print it with javascript.
     //redirecting to a new page without server, if not i would have put it in .then(data)
-    window.location.href = "welcome.html";
+    // window.location.href = "welcome.html";
 
     if (isEdit) {
         //You copy the original id from existingData.id to data.id just above.
         //That id is the one generated and stored in JSON Server, and must be used for PUT.
-        fetch(`http://localhost:3000/users/${data.id}`, { //(change need to be studied)
+        fetch(`http://localhost:8080/my-app/submitForm/${data.id}`, { //(change need to be studied)
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
         })
             .then(response => {
-
                 if (!response.ok) {
                     // If the response is not okay, throw an error
                     throw new Error("error fetching");
@@ -65,9 +63,14 @@ function handleFormSubmit(e) {
             })
             .then(data => {
                 console.log("Server response:", data);
-                alert("Form submitted successfully!");
-                window.location.href = "welcome.html";
 
+                if (data.success) {
+                    // Do something if the response indicates success
+                    alert("Form submitted successfully!");
+                    window.location.href = "welcome.html";
+                } else {
+                    alert("There was an issue submitting the form.");
+                }
             })
             .catch(error => {
                 // Catch any error from the fetch call 
@@ -76,7 +79,7 @@ function handleFormSubmit(e) {
             });
     }
     else {
-        fetch("http://localhost:3000/users", {
+        fetch("http://localhost:8080/my-app/submitForm", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
@@ -85,12 +88,9 @@ function handleFormSubmit(e) {
                 if (!response.ok) throw new Error("Failed to submit");
                 return response.json();
             })
-            .then(data => {
+            .then(() => {
                 alert("Form submitted successfully!");
-                setTimeout(() => {  //to check if alert is actually printed on submit, still doesnt work
-                    window.location.href = "welcome.html";
-                }, 100)
-
+                window.location.href = "welcome.html";
             })
             .catch(error => {
                 console.error("Error during fetch:", error);
@@ -101,7 +101,7 @@ function handleFormSubmit(e) {
 
 function setupLoginForm() {
     const form = document.querySelector(".form");
-    form.addEventListener("submit", handleFormSubmit);
+    // form.addEventListener("submit", handleFormSubmit);
 }
 
 //Ask for confirmation if reset is clicked
