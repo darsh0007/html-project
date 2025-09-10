@@ -17,5 +17,5 @@ The project demonstrates **form validation, dynamic DOM updates, and state manag
 - **JavaScript (ES6)**  
 - **localStorage API**
 
-  
+
   
